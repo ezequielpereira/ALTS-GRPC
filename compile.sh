@@ -21,4 +21,4 @@
 
 echo -e "\e[1;32mCompiling the client\e[0m"
 g++ -I cpp -std=c++11 `pkg-config --cflags protobuf grpc` -c -o gRPC_client.o gRPC_client.cc
-g++ -static -s -O3 $(find cpp_compiled -name "*.o") gRPC_client.o -L/usr/lib `pkg-config --libs protobuf grpc++ grpc openssl zlib` -Wl,--no-as-needed -lgrpc++_reflection -Wl,--as-needed -ldl -o gRPC_client
+g++ -static -s -O3 $(find cpp_compiled -name "*.o") gRPC_client.o -L/usr/lib `pkg-config --libs protobuf grpc++ grpc openssl zlib libcares` -Wl,--no-as-needed -lgrpc++_reflection -Wl,--as-needed -ldl -o gRPC_client

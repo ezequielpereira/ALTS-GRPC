@@ -3,7 +3,6 @@
 #include "grpc/gcp/handshaker.pb.h"
 #include "grpc/gcp/handshaker.grpc.pb.h"
 
-
 int main() {
   auto creds = grpc::InsecureChannelCredentials();
 
