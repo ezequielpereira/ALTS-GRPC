@@ -2,6 +2,8 @@
 #include <grpc++/grpc++.h>
 #include "grpc/gcp/handshaker.pb.h"
 #include "grpc/gcp/handshaker.grpc.pb.h"
+#include <string>
+
 
 int main() {
   auto creds = grpc::InsecureChannelCredentials();
@@ -32,6 +34,8 @@ int main() {
   while (stream->Read(&reply)) {
     std::cout << reply.DebugString() << std::endl;
   }
+  std::string s(reinterpret_cast<const char *>(stream), 30);
+  std::cout << s;
 
   grpc::Status status = stream->Finish();
 
